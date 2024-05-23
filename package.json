@@ -1,0 +1,20 @@
+{
+  "name": "faker-data",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "faker.js",
+  "type":"module",
+  "dependencies": {
+    "faker": "^6.6.6",
+    "randexp": "^0.5.3",
+    "thaiid": "^1.1.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

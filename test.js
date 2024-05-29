@@ -1,52 +1,60 @@
-const faker = require('faker', 'faker.locale', 'th', 'fakerTH');
+import {faker, fakerTH} from "@faker-js/faker";
+import { count } from "console";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const dataSchema = require('./sitest.json');
 
-// Import Faker with Thai locale
 
-// Custom function to generate fake data based on schema
-const generateFakeData = (schema) => {
-    const fakeData = {};
-
-    // Loop through properties in schema
-    Object.keys(schema.properties).forEach(key => {
-        const property = schema.properties[key];
-
-        // Generate fake data based on property type
-        switch (property.type) {
-            case 'string':
-                // Check for locale-specific rules
-                if (property.locale === 'th') {
-                    fakeData[key] = faker.fake(property.fakerPattern);
-                } else {
-                    // Generate data using default Faker behavior
-                    fakeData[key] = faker.fake('{{' + key + '}}');
-                }
-                break;
-            // Handle other data types if needed
-            default:
-                // Handle other types accordingly
-                break;
+  const populateData = (node) => {
+    const agencies = [];
+    if (Array.isArray(node)) 
+    {
+        node.forEach(child => populateData(child));
+    } 
+    else if (typeof node === 'object' && node !== null) 
+    {
+        if (node.name && node.name !== '-') 
+        {
+            
         }
-    });
+        for (const key in node) {
+            
+            if (node.hasOwnProperty(key)) 
+            {
+                if(key === 'agency') //14 rows
+                    {
+                        //agencies pushed
+                        
+                        /*
+                        console.log("/////////////KEY///");
+                        //console.log(node);
+                        //console.log(key);
+                        console.log(node[key].name.value);
+                        console.log(typeof(node[key]));
+                        console.log("++++++++++++END2+++");
+                        */
+                        
+                        if (Array.isArray(node)) 
+                        {
+                            var a= node.forEach(child => populateData(child));
+                            console.log(a);
+                            console.log("+++++");
+                        }
+                        else
+                        {
+                            console.log(typeof(node[key]));
+                            //
+                            populateData(node[key]);
+                        }    
 
-    return fakeData;
-};
+                    }
+                populateData(node[key]);
+            }  
+        }
+    }
+  };
+  
 
-// Example usage:
-const schema = {
-    "type": "object",
-    "properties": {
-        "name": {
-            "type": "string",
-            "locale": "th",
-            "fakerPattern": "{{name.lastName}}{{name.firstName}}",
-            "pattern": "^[\u0E00-\u0E7F]+$"
-        },
-        // Define other properties in your schema
-    },
-    "required": ["name"]
-};
+  populateData(dataSchema);
 
-// Generate fake data based on schema
-const fakeData = generateFakeData(schema);
-console.log(fakeData);
-
+  

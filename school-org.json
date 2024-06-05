@@ -1,0 +1,51 @@
+{
+    "Headmaster/Headmistress": {
+      "number": 1,
+      "Administration And Resources Department Leader": {
+        "number": 1,
+        "General Affairs": {
+          "number": 5
+        },
+        "Administrative Affairs": {
+          "number": 3
+        },
+        "Financial Affairs": {
+          "number": 2
+        },
+        "Procurement Affairs": {
+          "number": 4
+        }
+      },
+      "Development And Academic Department Leader": {
+        "number": 1,
+        "Teacher Development": {
+          "number": 6
+        },
+        "Curriculum Development": {
+          "number": 7
+        },
+        "Information Technology": {
+          "number": 4
+        },
+        "Cultural Exchange": {
+          "number": 5
+        }
+      },
+      "Activity And Moral Education Leader": {
+        "number": 1,
+        "Student Development": {
+          "number": 8
+        },
+        "Student Support": {
+          "number": 3
+        },
+        "Moral And Care": {
+          "number": 4
+        },
+        "Extra-Curricular Activities": {
+          "number": 6
+        }
+      }
+    }
+  }
+  

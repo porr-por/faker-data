@@ -2,7 +2,7 @@ import {faker, fakerTH} from "@faker-js/faker";
 import { count } from "console";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-const data = require('./sitest.json');
+const data = require('../sitest.json');
 
 function extractAgencies(data) {
    let agencies = [];
